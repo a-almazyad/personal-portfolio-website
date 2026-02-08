@@ -31,6 +31,7 @@ import { Button } from "@/components/ui/button"
 import { useLang } from "@/lib/language-context"
 import { useTheme } from "@/lib/theme-context"
 import { dictionary, t } from "@/lib/i18n"
+import { cn } from "@/lib/utils"
 
 const navItems = [
   { href: "/", label: dictionary.nav.home, icon: Home },
@@ -45,9 +46,15 @@ export function SiteSidebar() {
   const pathname = usePathname()
   const { lang, toggleLang } = useLang()
   const { theme, toggleTheme } = useTheme()
+  const isRtl = lang === "ar"
 
   return (
-    <Sidebar collapsible="icon" variant="inset" className="border-r border-sidebar-border">
+    <Sidebar
+      collapsible="icon"
+      variant="inset"
+      side={isRtl ? "right" : "left"}
+      className={cn("border-sidebar-border", isRtl ? "border-l" : "border-r")}
+    >
       <SidebarHeader className="gap-3 border-b border-sidebar-border px-3 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
@@ -58,7 +65,7 @@ export function SiteSidebar() {
               {t(dictionary.identity.name, lang)}
             </span>
           </Link>
-          <SidebarTrigger className="ml-auto" />
+          <SidebarTrigger className={cn(isRtl ? "mr-auto" : "ml-auto")} />
         </div>
       </SidebarHeader>
       <SidebarContent>
