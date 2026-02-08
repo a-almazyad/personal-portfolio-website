@@ -10,7 +10,6 @@ import { Sun, Moon, Globe, Menu, X } from "lucide-react"
 
 const navItems = [
   { href: "/", label: dictionary.nav.home },
-  { href: "/#about", label: dictionary.nav.about },
   { href: "/portfolio", label: dictionary.nav.portfolio },
   { href: "/resume", label: dictionary.nav.resume },
   { href: "/side-projects", label: dictionary.nav.sideProjects },

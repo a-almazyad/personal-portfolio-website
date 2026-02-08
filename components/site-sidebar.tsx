@@ -12,7 +12,6 @@ import {
   Mail,
   Moon,
   Sun,
-  User,
 } from "lucide-react"
 import {
   Sidebar,
@@ -35,7 +34,6 @@ import { dictionary, t } from "@/lib/i18n"
 
 const navItems = [
   { href: "/", label: dictionary.nav.home, icon: Home },
-  { href: "/#about", label: dictionary.nav.about, icon: User },
   { href: "/portfolio", label: dictionary.nav.portfolio, icon: BriefcaseBusiness },
   { href: "/resume", label: dictionary.nav.resume, icon: FileText },
   { href: "/side-projects", label: dictionary.nav.sideProjects, icon: FolderKanban },
