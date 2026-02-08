@@ -46,12 +46,15 @@ export function SiteSidebar() {
   const { lang, toggleLang } = useLang()
   const { theme, toggleTheme } = useTheme()
   const isRtl = lang === "ar"
+  const tooltipSide = isRtl ? "left" : "right"
 
   return (
     <Sidebar
       collapsible="icon"
       variant="inset"
       side={isRtl ? "right" : "left"}
+      dir={isRtl ? "rtl" : "ltr"}
+      key={lang}
       className={cn("border-sidebar-border", isRtl ? "border-l" : "border-r")}
     >
       <SidebarHeader className="gap-3 border-b border-sidebar-border px-3 py-4">
@@ -81,7 +84,11 @@ export function SiteSidebar() {
               const Icon = item.icon
               return (
                 <SidebarMenuItem key={item.href}>
-                  <SidebarMenuButton asChild isActive={isActive} tooltip={t(item.label, lang)}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={isActive}
+                    tooltip={{ children: t(item.label, lang), side: tooltipSide }}
+                  >
                     <Link href={item.href}>
                       <Icon />
                       <span>{t(item.label, lang)}</span>
@@ -97,13 +104,25 @@ export function SiteSidebar() {
       <SidebarFooter className="gap-2">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton onClick={toggleLang} tooltip={lang === "en" ? "Switch to Arabic" : "Switch to English"}>
+            <SidebarMenuButton
+              onClick={toggleLang}
+              tooltip={{
+                children: lang === "en" ? "Switch to Arabic" : "Switch to English",
+                side: tooltipSide,
+              }}
+            >
               <Globe />
               <span>{lang === "en" ? "Arabic" : "English"}</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton onClick={toggleTheme} tooltip={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}>
+            <SidebarMenuButton
+              onClick={toggleTheme}
+              tooltip={{
+                children: theme === "light" ? "Switch to dark mode" : "Switch to light mode",
+                side: tooltipSide,
+              }}
+            >
               {theme === "light" ? <Moon /> : <Sun />}
               <span>{theme === "light" ? "Dark Mode" : "Light Mode"}</span>
             </SidebarMenuButton>
