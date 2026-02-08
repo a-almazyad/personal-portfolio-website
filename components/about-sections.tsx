@@ -53,7 +53,7 @@ export function AboutWhatIDoSection({
   const Heading = headingLevel
 
   return (
-    <section id="about" ref={ref} className="border-t border-border py-16 md:py-24">
+    <section ref={ref} className="border-t border-border py-16 md:py-24">
       <div className="mx-auto max-w-[1200px] px-4 md:px-6">
         <Heading className="mb-8 text-2xl font-bold tracking-tight text-foreground">
           {t(dictionary.about.whatIDo, lang)}
