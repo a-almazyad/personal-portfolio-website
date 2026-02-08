@@ -6,16 +6,23 @@ import { SiteFooter } from "@/components/site-footer"
 import { SiteSidebar } from "@/components/site-sidebar"
 import { useLang } from "@/lib/language-context"
 import { dictionary, t } from "@/lib/i18n"
+import { cn } from "@/lib/utils"
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const { lang } = useLang()
+  const isRtl = lang === "ar"
 
   return (
-    <SidebarProvider defaultOpen>
+    <SidebarProvider defaultOpen className={cn(isRtl && "flex-row-reverse")}>
       <SiteSidebar />
       <SidebarInset>
         <div className="flex min-h-svh flex-col">
-          <header className="flex items-center gap-2 border-b border-border bg-background/80 px-4 py-3 backdrop-blur md:hidden">
+          <header
+            className={cn(
+              "flex items-center gap-2 border-b border-border bg-background/80 px-4 py-3 backdrop-blur md:hidden",
+              isRtl && "flex-row-reverse text-right",
+            )}
+          >
             <SidebarTrigger className="shrink-0" />
             <Link href="/" className="text-sm font-semibold text-foreground">
               {t(dictionary.identity.name, lang)}
