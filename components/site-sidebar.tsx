@@ -27,7 +27,6 @@ import {
   SidebarSeparator,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { Button } from "@/components/ui/button"
 import { useLang } from "@/lib/language-context"
 import { useTheme } from "@/lib/theme-context"
 import { dictionary, t } from "@/lib/i18n"
@@ -110,20 +109,6 @@ export function SiteSidebar() {
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
-        <Button
-          variant="outline"
-          size="sm"
-          className={cn(
-            "w-full gap-2 group-data-[collapsible=icon]:hidden",
-            isRtl ? "justify-end" : "justify-start",
-          )}
-          asChild
-        >
-          <a href="/Abdullah_Almazyad_Resume.pdf" target="_blank" rel="noopener noreferrer">
-            <FileText className="h-4 w-4" />
-            <span>{lang === "en" ? "Download CV" : "تحميل السيرة"}</span>
-          </a>
-        </Button>
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
