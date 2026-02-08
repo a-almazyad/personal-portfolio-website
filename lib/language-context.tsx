@@ -36,10 +36,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     setLang((prev) => (prev === "en" ? "ar" : "en"))
   }
 
-  if (!mounted) {
-    return null
-  }
-
   return (
     <LanguageContext.Provider value={{ lang, toggleLang }}>
       {children}
