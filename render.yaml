@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: personal-portfolio-website
+    runtime: node
+    plan: free
+    buildCommand: pnpm install --frozen-lockfile && pnpm run build
+    startCommand: pnpm start
