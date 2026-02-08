@@ -65,7 +65,12 @@ export function SiteSidebar() {
               {t(dictionary.identity.name, lang)}
             </span>
           </Link>
-          <SidebarTrigger className={cn(isRtl ? "mr-auto" : "ml-auto")} />
+          <SidebarTrigger
+            className={cn(
+              isRtl ? "mr-auto" : "ml-auto",
+              "group-data-[collapsible=icon]:hidden",
+            )}
+          />
         </div>
       </SidebarHeader>
       <SidebarContent>
