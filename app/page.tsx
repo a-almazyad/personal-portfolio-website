@@ -4,12 +4,13 @@ import Link from "next/link"
 import { useLang } from "@/lib/language-context"
 import { dictionary, t } from "@/lib/i18n"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
-import { AboutBioSection, AboutWhatIDoSection } from "@/components/about-sections"
+import { AboutWhatIDoSection } from "@/components/about-sections"
 import { ArrowRight, Briefcase, TrendingUp, Target, ExternalLink } from "lucide-react"
 
 function HeroSection() {
   const { lang } = useLang()
   const ref = useScrollReveal<HTMLElement>()
+  const aboutIntro = dictionary.about.bio[lang][0]
 
   return (
     <section ref={ref} className="py-20 md:py-32">
@@ -41,6 +42,9 @@ function HeroSection() {
               {t(dictionary.home.contact, lang)}
             </Link>
           </div>
+          <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            {aboutIntro}
+          </p>
         </div>
       </div>
     </section>
@@ -146,7 +150,6 @@ export default function HomePage() {
     <>
       <HeroSection />
       <HighlightsSection />
-      <AboutBioSection />
       <AboutWhatIDoSection />
       <FeaturedWorkSection />
     </>
