@@ -15,7 +15,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider defaultOpen className={cn(isRtl && "flex-row-reverse")}>
       <SiteSidebar />
-      <SidebarInset>
+      <SidebarInset
+        className={cn(
+          isRtl &&
+            "md:peer-data-[side=right]:peer-data-[state=collapsed]:mr-2 md:peer-data-[side=right]:peer-data-[variant=inset]:mr-0 md:peer-data-[side=right]:peer-data-[state=collapsed]:ml-0",
+        )}
+      >
         <div className="flex min-h-svh flex-col">
           <header
             className={cn(
