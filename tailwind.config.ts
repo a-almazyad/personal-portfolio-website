@@ -11,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', 'sans-serif'],
+        sans: ['var(--font-geist)', 'sans-serif'],
         arabic: ['var(--font-ibm-plex-arabic)', 'sans-serif'],
       },
       colors: {

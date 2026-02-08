@@ -1,15 +1,14 @@
 import React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter, IBM_Plex_Sans_Arabic } from "next/font/google"
+import { Geist, IBM_Plex_Sans_Arabic } from "next/font/google"
 import { ThemeProvider } from "@/lib/theme-context"
 import { LanguageProvider } from "@/lib/language-context"
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
+import { AppShell } from "@/components/app-shell"
 import "./globals.css"
 
-const inter = Inter({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-geist",
 })
 
 const ibmPlexArabic = IBM_Plex_Sans_Arabic({
@@ -50,16 +49,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${ibmPlexArabic.variable} font-sans antialiased`}
+        className={`${geist.variable} ${ibmPlexArabic.variable} font-sans antialiased`}
         suppressHydrationWarning
       >
         <ThemeProvider>
           <LanguageProvider>
-            <div className="flex min-h-svh flex-col">
-              <SiteHeader />
-              <main className="flex-1">{children}</main>
-              <SiteFooter />
-            </div>
+            <AppShell>{children}</AppShell>
           </LanguageProvider>
         </ThemeProvider>
       </body>
