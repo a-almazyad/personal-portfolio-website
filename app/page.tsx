@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useLang } from "@/lib/language-context"
 import { dictionary, t } from "@/lib/i18n"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import { AboutBioSection, AboutWhatIDoSection } from "@/components/about-sections"
 import { ArrowRight, Briefcase, TrendingUp, Target, ExternalLink } from "lucide-react"
 
 function HeroSection() {
@@ -145,6 +146,8 @@ export default function HomePage() {
     <>
       <HeroSection />
       <HighlightsSection />
+      <AboutBioSection />
+      <AboutWhatIDoSection />
       <FeaturedWorkSection />
     </>
   )
