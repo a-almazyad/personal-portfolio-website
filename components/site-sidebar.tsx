@@ -108,7 +108,10 @@ export function SiteSidebar() {
         <Button
           variant="outline"
           size="sm"
-          className="w-full justify-start gap-2 group-data-[collapsible=icon]:hidden"
+          className={cn(
+            "w-full gap-2 group-data-[collapsible=icon]:hidden",
+            isRtl ? "justify-end" : "justify-start",
+          )}
           asChild
         >
           <a href="/Abdullah_Almazyad_Resume.pdf" target="_blank" rel="noopener noreferrer">
