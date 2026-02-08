@@ -58,7 +58,7 @@ export function SiteSidebar() {
               {t(dictionary.identity.name, lang)}
             </span>
           </Link>
-          <SidebarTrigger className="ml-auto" />
+          <SidebarTrigger className="ml-auto group-data-[collapsible=icon]:hidden" />
         </div>
       </SidebarHeader>
       <SidebarContent>
